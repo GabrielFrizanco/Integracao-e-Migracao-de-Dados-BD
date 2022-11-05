@@ -1,0 +1,51 @@
+Select f.nm_funcionario,
+       g.ds_genero,
+       c.nm_cidade
+  From Funcionarios f
+       inner Join genero g
+             on f.id_genero = g.id_genero 
+       inner Join cidades c
+             on f.id_cidade = c.id_cidade
+--------------------------------------------------------------
+
+Select f.nm_funcionario,
+       g.ds_genero,
+       c.nm_cidade
+  From Funcionarios f
+       Join genero g
+       Join Cidades c
+       on f.id_genero = g.id_genero 
+          and f.id_cidade = c.id_cidade
+----------------------------------------------------------------
+Select f.nm_funcionario,
+       g.ds_genero,
+       c.nm_cidade
+  From Funcionarios f,
+       genero g,
+       Cidades c
+   where f.id_genero = g.id_genero 
+     and f.id_cidade = c.id_cidade
+
+-----------------------------------------------------------------
+
+Select f.nm_funcionario,
+       c.nm_cidade
+    from funcionarios f
+    inner join cidades c using (id_cidade)
+
+--------------------------------------------------------------------
+
+Create view visao_veiculos_cores AS
+select v.id_renavam renavam,
+       v.val_veiculo valor, 
+       v.ano_modelo ano,
+       c.id_cor cod_cor,
+       c.ds_cor decricao,
+       m.ds_marca marca
+from veiculos v 
+ JOIN cores c
+ Join marcas m
+  where v.id_cor = c.id_cor
+   and v.id_marca = m.id_marca
+   and v.val_veiculo > 25000
+   and c.id_cor = 3

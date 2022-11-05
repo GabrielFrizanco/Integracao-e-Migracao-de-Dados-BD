@@ -1,0 +1,9 @@
+Select f.id_funcionario id_pessoa, f.nm_funcionario nm_pessoa, f.dt_nascimento dat_nascimento, g.ds_genero genero, 'Funcionario' tp_pessoa
+from Funcionarios f 
+     INNER join genero g
+        on f.id_genero = g.id_genero
+Union
+Select d.id_dependente id_pessoa, d.nm_dependente nm_pessoa, d.dt_nascimento dat_nascimento, ge.ds_genero genero, 'Dependente' tpo_pessoa
+From Dependentes d
+     INNER JOIN genero ge
+        on d.id_genero = ge.id_genero
